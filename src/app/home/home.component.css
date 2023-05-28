@@ -1,0 +1,14 @@
+.container{
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-top: 3px solid #004161;
+  border-bottom: 3px solid #004161;
+  color: #004161;
+  font-size: 30px;
+  font-family: Calibri, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}

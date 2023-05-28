@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0 0;
+}
+app-root{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+app-home{
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  /*margin-top: 20%;*/
+
+}
