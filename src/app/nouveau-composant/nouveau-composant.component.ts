@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+interface list{
+  Value: string,
+  ViewValue:string,
+}
 @Component({
   selector: 'app-nouveau-composant',
   templateUrl: './nouveau-composant.component.html',
@@ -8,12 +11,15 @@ import { Component, OnInit } from '@angular/core';
 export class NouveauComposantComponent implements OnInit {
 
   string: boolean;
+  list: list[] = [
+    {Value:"Choisir un element", ViewValue: "Choisir un element"},
+    {Value:"non", ViewValue: "non"},
+    {Value:"oui", ViewValue: "oui"},
+  ]
   constructor() {
-    this.string = true;
+    this.string = false;
   }
+
   ngOnInit(): void {
   }
-  
-  
-
 }
