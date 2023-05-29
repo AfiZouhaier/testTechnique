@@ -1,0 +1,194 @@
+<div class="vehiculeNavBar"><p>SOUSCRIPTEUR & CO</p></div>
+<form action="" (ngSubmit)="submitForm()">
+  <div class="container">
+    <div class="component component1">
+      <h3>COORDONNEES (ADRESSE + JOIGNABILITE)</h3>
+      <div class="form form1">
+        <div class="groupInputsColumn">
+
+          <!--Le bien à assurer est-il inoccupé une partie de l'année ?-->
+          <div class="inputDiv">
+            <p>Le bien à assurer est-il inoccupé une partie de l'année ?</p>
+            <select (change)="bienAssure($event)" class="input">
+              <option *ngFor="let element of ouiNonList" [value]="element.Value">
+                {{element.ViewValue}}
+              </option>
+            </select>
+          </div>
+          <!--si oui: Précisez le nombre de jours d'innocupation	-->
+          <div *ngIf="bienAss" class="inputDiv">
+            <p>Précisez le nombre de jours d'innocupation</p>
+            <input type="text" class="input" >
+          </div>
+          <!--si oui: Précisez la nature de la période	-->
+          <div *ngIf="bienAss" class="inputDiv">
+            <p>Précisez la nature de la période</p>
+            <select class="input">
+              <option *ngFor="let element of naturePerList" [value]="element.Value">
+                {{element.ViewValue}}
+              </option>
+            </select>
+          </div>
+
+
+         <!--Vous arrive t'il de louer temporairement votre logement ?-->
+          <div class="inputDiv">
+            <p>Vous arrive t'il de louer temporairement votre logement ?</p>
+            <select (change)="louer($event)" class="input">
+              <option *ngFor="let element of ouiNonList" [value]="element.Value">
+                {{element.ViewValue}}
+              </option>
+            </select>
+          </div>
+          <!--si oui: Vous arrive t'il de louer temporairement votre logement	-->
+          <div *ngIf="loueroui" class="inputDiv">
+            <p>Vous arrive t'il de louer temporairement votre logement ?</p>
+            <select (change)="louerpartie($event)" class="input">
+              <option *ngFor="let element of logementList" [value]="element.Value">
+                {{element.ViewValue}}
+              </option>
+            </select>
+          </div>
+          <!--si une partie seulement: Précisez le nombre de pièces	-->
+          <div *ngIf="partie" class="inputDiv">
+            <p>Précisez le nombre de pièces</p>
+            <input type="number" class="input" >
+          </div>
+          <!--si une partie seulement: Précisez	-->
+        <div *ngIf="partie" class="inputDiv">
+            <p>Précisez</p>
+            <select class="input">
+              <option *ngFor="let element of partieList" [value]="element.Value">
+                {{element.ViewValue}}
+              </option>
+            </select>
+          </div>
+
+          <!--si oui: Précisez la nature de la location 
+          <div *ngIf="loueroui" class="inputDiv">
+            <p>Précisez la nature de la location </p>
+            <div class="input containerCheckBoxes">
+              <div class="checkBoxesDiv">
+                <div class="checkBox">
+                  <input  type="radio" name="intégralité" id="in">
+                  <label for="in">Le logement dans son intégralité</label>
+                </div>
+
+                <div class="checkBox">
+                  <input (change)="louerpartie($event)" type="radio" name="partie" id="par">
+                  <label for="par">Une partie seulement</label>
+                </div>
+
+                <div class="checkBox">
+                  <input type="radio" name="Réception" id="re">
+                  <label for="re">Réception</label>
+                </div>
+
+                <div class="checkBox">
+                  <input type="radio" name="AirBnB" id="air">
+                  <label for="air">AirBnB</label>
+                </div>
+
+                <div class="checkBox">
+                    <input type="radio" name="AirBnB" id="air">
+                    <label for="air">Chambre d'hôtes</label>
+                </div>
+
+                <div class="inputDiv">
+                    <p>Autre</p>
+                    <input type="number" class="input" >
+                </div>
+
+              </div>
+            </div>
+          </div>
+        -->
+
+         <!--Exercez-vous une activité professionnelle à domicile ?-->
+         <div class="inputDiv">
+            <p>Exercez-vous une activité professionnelle à domicile ?</p>
+            <select (change)="activite($event)" class="input">
+              <option *ngFor="let element of ouiNonList" [value]="element.Value">
+                {{element.ViewValue}}
+              </option>
+            </select>
+          </div>
+        <!--si oui: Préciser	-->
+        <div *ngIf="activiteoui" class="inputDiv">
+            <p>Préciser</p>
+            <select (change)="preciserActivite($event)" class="input">
+                <option *ngFor="let element of activiteList" [value]="element.Value">
+                {{element.ViewValue}}
+                </option>
+            </select>
+        </div>
+          <!--si une partie seulement: Précisez le nombre de pièces	-->
+          <div *ngIf="activiteoui" class="inputDiv">
+            <p>Autre</p>
+            <input type="text" class="input" >
+          </div>
+          <!--si Maternelle: Souhaitez-vous souscrire la Responsabilité Civile Assistante Maternelle ?-->
+          <div *ngIf="Maternelle" class="inputDiv">
+            <p>Souhaitez-vous souscrire la Responsabilité Civile Assistante Maternelle ? </p>
+            <div class="input containerCheckBoxes">
+              <div class="checkBoxesDiv">
+                <div class="checkBox">
+                  <input  type="radio" name="intégralité" id="in">
+                  <label for="in">oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="partie" id="par">
+                  <label for="par">non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!--si Télétravail: Préciser fréquence	-->
+        <div *ngIf="Teletravail" class="inputDiv">
+            <p>Préciser la fréquence</p>
+            <select class="input">
+                <option *ngFor="let element of frequenceList" [value]="element.Value">
+                {{element.ViewValue}}
+                </option>
+            </select>
+        </div>
+        <!--si Télétravail: Précisez la typologie du matériel professionnel utilisé	-->
+        <div *ngIf="Teletravail" class="inputDiv">
+            <p>Précisez la typologie du matériel professionnel utilisé</p>
+            <select class="input">
+                <option *ngFor="let element of typologieList" [value]="element.Value">
+                {{element.ViewValue}}
+                </option>
+            </select>
+        </div>
+        <!--si Télétravail: Préciser	-->
+        <div *ngIf="Teletravail" class="inputDiv">
+            <p>Préciser la fréquence</p>
+            <select (change)="autreFrequence($event)" class="input">
+                <option *ngFor="let element of frequenceList" [value]="element.Value">
+                {{element.ViewValue}}
+                </option>
+            </select>
+        </div>
+          <!--si autre : remplir	-->
+          <div *ngIf="autreFr" class="inputDiv">
+            <p>A remplir</p>
+            <input type="text" class="input" >
+          </div>
+          <!--si Teletravail : Précisez le montant total à assurer	-->
+          <div *ngIf="Teletravail" class="inputDiv">
+            <p>Précisez le montant total à assurer</p>
+            <input type="text" class="input" placeholder="Valeur en $">
+          </div>
+
+
+
+
+        </div>
+    </div>
+  </div>
+</div>
+  <button type="submit" class="submitBtn">Suivant</button>
+</form>
+
+
