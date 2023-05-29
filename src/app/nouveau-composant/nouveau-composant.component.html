@@ -1,0 +1,8 @@
+<select (change)="string=!string">
+    <option *ngFor="let element of list" [value]="element.Value">
+        {{element.ViewValue}}
+    </option>
+  </select>
+  
+  <input *ngIf="string" type="text"/>
+  
