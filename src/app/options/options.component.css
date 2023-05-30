@@ -1,0 +1,136 @@
+.vehiculeNavBar{
+    height: 60px;
+    background-color: #F5F5F5;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 10px;
+    font-family: 'Ysabeau', sans-serif;
+    color: #004161;
+    font-size: 27px;
+  }
+  form{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  
+    margin-bottom: 20px;
+  }
+  .container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  
+  }
+  .component{
+    height: 100%;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form{
+    box-shadow: 0 0 10px 8px rgba(191,204,209,.14);
+    background-color: #FFFFFF;
+    border-top: 2px solid #004161;
+    border-bottom: 2px solid #004161;
+    height: 100%;
+  }
+  .component h3{
+    font-family: 'Ysabeau', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #004161;
+  }
+  .groupInputsColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  .groupInputsRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  
+  }
+  .inputDiv{
+    width: 80%;
+    height: 100%;
+    margin: 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  
+  }
+  
+  .inputDiv p{
+    margin-bottom: 10px;
+    font-family: 'Ysabeau', sans-serif;
+    font-size: 14px;
+  }
+  
+  .input{
+  
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    border: none;
+    height: 40px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .submitBtn{
+    margin-top: 20px;
+    margin-left: 80%;
+    width: 20%;
+    border: none;
+    background-color: #004161;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    height: 40px;
+    cursor: pointer;
+    color: white;
+  }
+  /* pour les multis checkBoxes*/
+  .input.containerCheckBoxes{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .input.containerCheckBoxes .checkBoxesDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+  }
+  .input.containerCheckBoxes .checkBoxesDiv .checkBox{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 95%;
+    font-family: 'Ysabeau', sans-serif;
+    font-size: 14px;
+  }
+  .input.containerCheckBoxes .checkBoxesDiv .checkBox input{
+  margin-right: 5px;
+  }
+  

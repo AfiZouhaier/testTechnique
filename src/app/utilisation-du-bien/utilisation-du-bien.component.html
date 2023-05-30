@@ -2,7 +2,7 @@
 <form action="" (ngSubmit)="submitForm()">
   <div class="container">
     <div class="component component1">
-      <h3>COORDONNEES (ADRESSE + JOIGNABILITE)</h3>
+      <h3>Utilisation du bien</h3>
       <div class="form form1">
         <div class="groupInputsColumn">
 
@@ -16,12 +16,12 @@
             </select>
           </div>
           <!--si oui: Précisez le nombre de jours d'innocupation	-->
-          <div *ngIf="bienAss" class="inputDiv">
+          <div *ngIf="bienAss" style="padding-left: 20px; font-style: italic;" class="inputDiv">
             <p>Précisez le nombre de jours d'innocupation</p>
             <input type="text" class="input" >
           </div>
           <!--si oui: Précisez la nature de la période	-->
-          <div *ngIf="bienAss" class="inputDiv">
+          <div *ngIf="bienAss" style="padding-left: 20px;font-style: italic;" class="inputDiv">
             <p>Précisez la nature de la période</p>
             <select class="input">
               <option *ngFor="let element of naturePerList" [value]="element.Value">
@@ -40,9 +40,9 @@
               </option>
             </select>
           </div>
-          <!--si oui: Vous arrive t'il de louer temporairement votre logement	-->
-          <div *ngIf="loueroui" class="inputDiv">
-            <p>Vous arrive t'il de louer temporairement votre logement ?</p>
+          <!--si oui: Précisez la nature de la location	-->
+          <div *ngIf="loueroui" class="inputDiv" style="padding-left: 20px; font-style: italic;">
+            <p>Précisez la nature de la location ?</p>
             <select (change)="louerpartie($event)" class="input">
               <option *ngFor="let element of logementList" [value]="element.Value">
                 {{element.ViewValue}}
@@ -50,12 +50,12 @@
             </select>
           </div>
           <!--si une partie seulement: Précisez le nombre de pièces	-->
-          <div *ngIf="partie" class="inputDiv">
+          <div *ngIf="partie && loueroui" class="inputDiv" style="padding-left: 20px; font-style: italic;">
             <p>Précisez le nombre de pièces</p>
             <input type="number" class="input" >
           </div>
           <!--si une partie seulement: Précisez	-->
-        <div *ngIf="partie" class="inputDiv">
+        <div *ngIf="partie && loueroui" class="inputDiv" style="padding-left: 20px; font-style: italic;">
             <p>Précisez</p>
             <select class="input">
               <option *ngFor="let element of partieList" [value]="element.Value">
@@ -63,46 +63,11 @@
               </option>
             </select>
           </div>
-
-          <!--si oui: Précisez la nature de la location 
-          <div *ngIf="loueroui" class="inputDiv">
-            <p>Précisez la nature de la location </p>
-            <div class="input containerCheckBoxes">
-              <div class="checkBoxesDiv">
-                <div class="checkBox">
-                  <input  type="radio" name="intégralité" id="in">
-                  <label for="in">Le logement dans son intégralité</label>
-                </div>
-
-                <div class="checkBox">
-                  <input (change)="louerpartie($event)" type="radio" name="partie" id="par">
-                  <label for="par">Une partie seulement</label>
-                </div>
-
-                <div class="checkBox">
-                  <input type="radio" name="Réception" id="re">
-                  <label for="re">Réception</label>
-                </div>
-
-                <div class="checkBox">
-                  <input type="radio" name="AirBnB" id="air">
-                  <label for="air">AirBnB</label>
-                </div>
-
-                <div class="checkBox">
-                    <input type="radio" name="AirBnB" id="air">
-                    <label for="air">Chambre d'hôtes</label>
-                </div>
-
-                <div class="inputDiv">
-                    <p>Autre</p>
-                    <input type="number" class="input" >
-                </div>
-
-              </div>
-            </div>
+          <div *ngIf="autreLocation && loueroui" class="inputDiv" style="padding-left: 20px; font-style: italic;">
+            <p>Autre</p>
+            <input type="text" class="input" >
           </div>
-        -->
+
 
          <!--Exercez-vous une activité professionnelle à domicile ?-->
          <div class="inputDiv">
@@ -114,7 +79,7 @@
             </select>
           </div>
         <!--si oui: Préciser	-->
-        <div *ngIf="activiteoui" class="inputDiv">
+        <div *ngIf="activiteoui" class="inputDiv" style="padding-left: 20px; font-style: italic;">
             <p>Préciser</p>
             <select (change)="preciserActivite($event)" class="input">
                 <option *ngFor="let element of activiteList" [value]="element.Value">
@@ -123,28 +88,22 @@
             </select>
         </div>
           <!--si une partie seulement: Précisez le nombre de pièces	-->
-          <div *ngIf="activiteoui" class="inputDiv">
+          <div *ngIf="autreActivite && activiteoui" class="inputDiv" style="padding-left: 20px; font-style: italic;">
             <p>Autre</p>
             <input type="text" class="input" >
           </div>
+
           <!--si Maternelle: Souhaitez-vous souscrire la Responsabilité Civile Assistante Maternelle ?-->
-          <div *ngIf="Maternelle" class="inputDiv">
-            <p>Souhaitez-vous souscrire la Responsabilité Civile Assistante Maternelle ? </p>
-            <div class="input containerCheckBoxes">
-              <div class="checkBoxesDiv">
-                <div class="checkBox">
-                  <input  type="radio" name="intégralité" id="in">
-                  <label for="in">oui</label>
-                </div>
-                <div class="checkBox">
-                  <input type="radio" name="partie" id="par">
-                  <label for="par">non</label>
-                </div>
-              </div>
-            </div>
+          <div *ngIf="Maternelle && activiteoui" class="inputDiv" style="padding-left: 20px; font-style: italic;">
+            <p>Souhaitez-vous souscrire la Responsabilité Civile Assistante Maternelle ?</p>
+            <select class="input">
+              <option *ngFor="let element of ouiNonList" [value]="element.Value">
+                {{element.ViewValue}}
+              </option>
+            </select>
           </div>
         <!--si Télétravail: Préciser fréquence	-->
-        <div *ngIf="Teletravail" class="inputDiv">
+        <div *ngIf="Teletravail && activiteoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
             <p>Préciser la fréquence</p>
             <select class="input">
                 <option *ngFor="let element of frequenceList" [value]="element.Value">
@@ -153,35 +112,168 @@
             </select>
         </div>
         <!--si Télétravail: Précisez la typologie du matériel professionnel utilisé	-->
-        <div *ngIf="Teletravail" class="inputDiv">
+        <div *ngIf="Teletravail && activiteoui" class="inputDiv" style="padding-left: 20px; font-style: italic;">
             <p>Précisez la typologie du matériel professionnel utilisé</p>
-            <select class="input">
+            <select (change)="autreFrequence($event)" class="input">
                 <option *ngFor="let element of typologieList" [value]="element.Value">
                 {{element.ViewValue}}
                 </option>
             </select>
         </div>
-        <!--si Télétravail: Préciser	-->
-        <div *ngIf="Teletravail" class="inputDiv">
-            <p>Préciser la fréquence</p>
-            <select (change)="autreFrequence($event)" class="input">
-                <option *ngFor="let element of frequenceList" [value]="element.Value">
-                {{element.ViewValue}}
-                </option>
-            </select>
-        </div>
           <!--si autre : remplir	-->
-          <div *ngIf="autreFr" class="inputDiv">
+          <div *ngIf="autreFr && activiteoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
             <p>A remplir</p>
             <input type="text" class="input" >
           </div>
           <!--si Teletravail : Précisez le montant total à assurer	-->
-          <div *ngIf="Teletravail" class="inputDiv">
+          <div *ngIf="Teletravail && activiteoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
             <p>Précisez le montant total à assurer</p>
             <input type="text" class="input" placeholder="Valeur en $">
           </div>
 
+         <!--Êtes-vous couvert contre les accidents domestiques ?-->
+          <div  class="inputDiv">
+            <p>Êtes-vous couvert contre les accidents domestiques ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="accidents" (change)="accidents($event)" value="Oui" id="accidentsoui">
+                  <label for="accidentsoui">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="accidents" (change)="accidents($event)" value="Non" id="accidentsnon">
+                  <label for="accidentsnon">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--si oui: Précisez de quelle façon ?-->
+          <div *ngIf="accidentsoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+            <p>Précisez de quelle façon </p>
+            <div class="input containerCheckBoxes">
+              <div class="checkBoxesDiv">
+                <div class="checkBox">
+                  <input  type="radio" name="Principe" id="forfaitaire">
+                  <label for="forfaitaire">Principe forfaitaire</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="Principe" id="indemnitaire">
+                  <label for="indemnitaire">Principe indemnitaire</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="Principe" id="saitpas">
+                  <label for="saitpas">Ne sait pas</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--si oui: Souhaitez-vous mettre en concurrence votre contrat?-->
+          <div *ngIf="accidentsoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+            <p>Souhaitez-vous mettre en concurrence votre contrat ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="concurrence" value="Oui" id="concurrenceoui">
+                  <label for="concurrenceoui">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="concurrence" value="Non" id="concurrencenon">
+                  <label for="concurrencenon">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- si non: Souhaitez-vous souscrire une GAV ?-->
+          <div *ngIf="accidentsnon" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+            <p>Souhaitez-vous souscrire une GAV ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="GAV" value="Oui" id="GAVoui">
+                  <label for="GAVoui">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="GAV" value="Non" id="GAVnon">
+                  <label for="GAVnon">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <!--En cas de sinistre, avez-vous une solution de relogement ?-->
+          <div class="inputDiv">
+            <p>En cas de sinistre, avez-vous une solution de relogement ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="concurrence" (change)="sinistre($event)" value="Oui" id="concurrenceoui">
+                  <label for="concurrenceoui">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="concurrence" value="Non" (change)="sinistre($event)" id="concurrencenon">
+                  <label for="concurrencenon">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!--si oui: Précisez la solution ?-->
+        <div *ngIf="sinistreoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+          <p>Précisez la solution</p>
+          <div class="input containerCheckBoxes">
+            <div class="checkBoxesDiv">
+              <div class="checkBox">
+                <input  type="radio" name="Hébergement" id="Résidence">
+                <label for="Résidence">Résidence secondaire </label>
+              </div>
+              <div class="checkBox">
+                <input type="radio" name="Hébergement" id="ascendants">
+                <label for="ascendants">Hébergement chez vos ascendants</label>
+              </div>
+              <div class="checkBox">
+                <input type="radio" name="Hébergement" id="saitpas">
+                <label for="saitpas">Hébergement chez vos descendants</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <!--Souhaitez vous l'option relogement en cas de sinistre ?-->
+          <div class="inputDiv">
+            <p>En cas de sinistre, avez-vous une solution de relogement ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="concurrence" (change)="relogementsinistre($event)" value="Oui" id="concurrenceoui">
+                  <label for="concurrenceoui">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="concurrence" value="Non" (change)="relogementsinistre($event)" id="concurrencenon">
+                  <label for="concurrencenon">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--si oui : Précisez la période d'indemnisation-->
+          <div *ngIf="relogementsinistreoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+            <p>Précisez la période d'indemnisation </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="concurrence"  value="oui" id="concurrenceoui">
+                  <label for="concurrenceoui">12 mois</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="concurrence" value="Non"id="concurrencenon">
+                  <label for="concurrencenon">24 mois</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="concurrence" value="Non"id="concurrencenon">
+                  <label for="concurrencenon">36 mois</label>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
         </div>

@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { NouveauComposantComponent } from './nouveau-composant/nouveau-composant.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UtilisationDuBienComponent } from './utilisation-du-bien/utilisation-du-bien.component';
+import { OptionsComponent } from './options/options.component';
+import { SINISTRALITEComponent } from './sinistralite/sinistralite.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,6 +15,8 @@ import { UtilisationDuBienComponent } from './utilisation-du-bien/utilisation-du
     NouveauComposantComponent,
     NouveauComposantComponent,
     UtilisationDuBienComponent,
+    OptionsComponent,
+    SINISTRALITEComponent,
   ],
     imports: [
         BrowserModule,

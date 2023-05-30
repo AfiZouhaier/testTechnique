@@ -1,0 +1,213 @@
+<div class="vehiculeNavBar"><p>SOUSCRIPTEUR & CO</p></div>
+<form action="" (ngSubmit)="submitForm()">
+  <div class="container">
+    <div class="component component1">
+      <h3>Options</h3>
+      <div class="form form1">
+        <div class="groupInputsColumn">
+          <!--Pratiquez vous la chasse ?-->
+          <div class="inputDiv">
+            <p>Pratiquez vous la chasse ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="chasse" (change)="chasse($event)" value="Oui" id="chasse">
+                  <label for="chasse">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="chasse" value="Non" (change)="chasse($event)" id="chassenon">
+                  <label for="chassenon">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--si oui : Souhaitez-vous souscrire la Responsabilité Civile Chasse ?-->
+          <div *ngIf="chasseoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+            <p>Souhaitez-vous souscrire la Responsabilité Civile Chasse ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="Civile"  value="Oui" id="Responsabilité">
+                  <label for="Responsabilité">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="Civile" value="Non" id="Civile">
+                  <label for="Civile">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!--Etes vous indemnisé(e) pour accueillir des gens chez vous ?-->
+          <div class="inputDiv">
+            <p>Etes vous indemnisé(e) pour accueillir des gens chez vous ? </p>
+            <div class="input containerCheckBoxes" >
+                <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                    <input type="radio"  name="accueillir" (change)="accueillir($event)" value="Oui" id="chasse">
+                    <label for="chasse">Oui</label>
+                </div>
+                <div class="checkBox">
+                    <input type="radio" name="accueillir" value="Non" (change)="accueillir($event)" id="chassenon">
+                    <label for="chassenon">Non</label>
+                </div>
+                </div>
+            </div>
+          </div>
+            <!--si oui : Souhaitez-vous souscrire la Responsabilité Civile Acceuillant ?-->
+          <div *ngIf="accueilliroui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+            <p>Souhaitez-vous souscrire la Responsabilité Civile Acceuillant ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="Acceuillant"  value="Oui" id="Acceuillant">
+                  <label for="Acceuillant">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="Acceuillant" value="Non" id="souscrire">
+                  <label for="souscrire">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!--Souhaitez vous l'option assurance scolaire ?-->
+            <div class="inputDiv">
+            <p>Souhaitez vous l'option assurance scolaire ?</p>
+            <div class="input containerCheckBoxes" >
+                <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                    <input type="radio"  name="scolaire" (change)="scolaire($event)" value="Oui" id="scolaire">
+                    <label for="scolaire">Oui</label>
+                </div>
+                <div class="checkBox">
+                    <input type="radio" name="scolaire" value="Non" (change)="scolaire($event)" id="option">
+                    <label for="option">Non</label>
+                </div>
+                </div>
+            </div>
+            </div>
+          <!--si oui: Précisez pour quel(s) enfant(s) -->
+          <div *ngIf="scolaireoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+            <p>Précisez pour quel(s) enfant(s) </p>
+            <input type="text" class="input" >
+          </div>
+        <!--si oui: Précisez pour quel niveau de couverture-->
+        <div *ngIf="scolaireoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+            <p>Précisez pour quel niveau de couverture</p>
+            <input type="text" class="input" >
+        </div>
+
+            <!--Souhaitez vous l'option assistance à domicile ?-->
+            <div class="inputDiv">
+                <p>Souhaitez vous l'option assistance à domicile ?</p>
+                <div class="input containerCheckBoxes" >
+                  <div class="checkBoxesDiv" >
+                    <div class="checkBox">
+                      <input type="radio"  name="domicile"  value="Oui" id="domicile">
+                      <label for="domicile">Oui</label>
+                    </div>
+                    <div class="checkBox">
+                      <input type="radio" name="domicile" value="Non" id="domicilen">
+                      <label for="domicilen">Non</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+             <!--Souhaitez vous la Garantie Bris de Glace étendue ?-->
+            <div class="inputDiv">
+                <p>Souhaitez vous la Garantie Bris de Glace étendue ?</p>
+                <div class="input containerCheckBoxes" >
+                  <div class="checkBoxesDiv" >
+                    <div class="checkBox">
+                      <input type="radio"  name="Glace"  value="Oui" id="Glace">
+                      <label for="Glace">Oui</label>
+                    </div>
+                    <div class="checkBox">
+                      <input type="radio" name="Glace" value="Non" id="Glacen">
+                      <label for="Glacen">Non</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <!--Souhaitez vous etre assuré contre les dommages imprévisibles au batiment ?
+(ex : effondrement d'un arbre en dehors d'une tempête)-->
+            <div class="inputDiv">
+                <p>Souhaitez vous etre assuré contre les dommages imprévisibles au batiment ?
+                    (ex : effondrement d'un arbre en dehors d'une tempête)</p>
+                <div class="input containerCheckBoxes" >
+                  <div class="checkBoxesDiv" >
+                    <div class="checkBox">
+                      <input type="radio"  name="dommages"  value="Oui" id="dommages">
+                      <label for="dommages">Oui</label>
+                    </div>
+                    <div class="checkBox">
+                      <input type="radio" name="dommages" value="Non" id="dommagesn">
+                      <label for="dommagesn">Non</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <!--Souhaitez vous etre assuré pour la location de salles ?-->
+            <div class="inputDiv">
+                <p>Souhaitez vous etre assuré pour la location de salles ?</p>
+                <div class="input containerCheckBoxes" >
+                  <div class="checkBoxesDiv" >
+                    <div class="checkBox">
+                      <input type="radio"  name="salles"  value="Oui" id="salles">
+                      <label for="salles">Oui</label>
+                    </div>
+                    <div class="checkBox">
+                      <input type="radio" name="salles" value="Non" id="sallesn">
+                      <label for="sallesn">Non</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <!--Souhaitez vous etre assuré pour les chocs de VTM contre votre grillage ?-->
+            <div class="inputDiv">
+                <p>Souhaitez vous etre assuré pour les chocs de VTM contre votre grillage ?</p>
+                <div class="input containerCheckBoxes" >
+                  <div class="checkBoxesDiv" >
+                    <div class="checkBox">
+                      <input type="radio"  name="grillage"  value="Oui" id="grillage">
+                      <label for="grillage">Oui</label>
+                    </div>
+                    <div class="checkBox">
+                      <input type="radio" name="grillage" value="Non" id="grillagen">
+                      <label for="grillagen">Non</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            <!--Souhaitez vous la garantie "déménagement" ?-->
+            <div class="inputDiv">
+                <p>Souhaitez vous la garantie "déménagement" ?</p>
+                <div class="input containerCheckBoxes" >
+                  <div class="checkBoxesDiv" >
+                    <div class="checkBox">
+                      <input type="radio"  name="garantie"  value="Oui" id="garantie">
+                      <label for="garantie">Oui</label>
+                    </div>
+                    <div class="checkBox">
+                      <input type="radio" name="garantie" value="Non" id="garantien">
+                      <label for="garantien">Non</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+  <button type="submit" class="submitBtn">Suivant</button>
+</form>
+
+
