@@ -1,0 +1,44 @@
+<div class="vehiculeNavBar"><p>SOUSCRIPTEUR & CO</p></div>
+<form action="" (ngSubmit)="submitForm()">
+  <div class="container">
+    <div class="component component1">
+      <h3>Sinistralité</h3>
+      <div class="form form1">
+
+        <div class="groupInputsColumn">
+          <!--Avez-vous eu dans les 36 derniers mois -->
+          <div class="inputDiv">
+            <p>Avez-vous eu dans les 36 derniers mois ? </p>
+            <div class="input containerCheckBoxes" >
+              <div class="checkBoxesDiv" >
+                <div class="checkBox">
+                  <input type="radio"  name="chasse" (change)="chasse($event)" value="Oui" id="chasse">
+                  <label for="chasse">Oui</label>
+                </div>
+                <div class="checkBox">
+                  <input type="radio" name="chasse" value="Non" (change)="chasse($event)" id="chassenon">
+                  <label for="chassenon">Non</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+            <!--Quel Type de sinistre ?-->
+              <div *ngIf="chasseoui" style="padding-left: 20px; font-style: italic;" class="inputDiv">
+                <p>Quel Type de sinistre</p>
+                <select class="input">
+                  <option *ngFor="let element of sinistreList" [value]="element.Value">
+                    {{element.ViewValue}}
+                  </option>
+                </select>
+              </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+  <button type="submit" class="submitBtn">Suivant</button>
+</form>
+
+
